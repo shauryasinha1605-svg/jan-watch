@@ -1,0 +1,11 @@
+node_modules
+.next
+.env
+.env.local
+.DS_Store
+/data/janwatch.json
+/public/uploads/*
+/data/uploads/*
+!/public/uploads/.gitkeep
+
+*.tsbuildinfo

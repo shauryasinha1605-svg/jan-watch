@@ -1,0 +1,4 @@
+'use client';
+import Link from 'next/link'; import { MapPin,CalendarDays,ArrowUpRight } from 'lucide-react';
+import { StatusBadge,SeverityBadge } from './StatusBadge'; import type { Complaint } from '@/lib/types'; import { pretty,dateLabel } from '@/lib/client';
+export default function ComplaintCard({complaint:c,wardName}:{complaint:Complaint;wardName?:string}){return <Link href={`/complaints/${c.id}`} className="complaint-card"><div className="complaint-card-head"><span className="ticket">{c.ticketCode}</span><ArrowUpRight size={17}/></div><h3>{c.title}</h3><p>{c.description}</p><div className="complaint-meta"><span><MapPin size={14}/>{c.locationText||wardName||'Demo City'}</span><span><CalendarDays size={14}/>{dateLabel(c.createdAt)}</span></div><div className="complaint-foot"><span className="category-tag">{pretty(c.category)}</span><div className="badges"><SeverityBadge severity={c.severity}/><StatusBadge status={c.status}/></div></div></Link>}

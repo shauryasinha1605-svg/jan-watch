@@ -1,0 +1,3 @@
+import type { Metadata } from 'next'; import 'leaflet/dist/leaflet.css'; import './globals.css'; import Header from '@/components/Header';
+export const metadata:Metadata={title:'JanWatch — Civic issues, visible and accountable',description:'An AI-assisted civic grievance and infrastructure monitoring prototype.'};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><Header/><main className="app-main">{children}</main><footer className="site-footer"><div className="container footer-inner"><span>© 2026 JanWatch · Demo City prototype</span><span>AI recommendations are advisory. Officers make official decisions.</span></div></footer></body></html>}

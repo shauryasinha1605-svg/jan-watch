@@ -1,0 +1,2 @@
+import { requireUser } from '@/lib/auth'; import { readStore } from '@/lib/store'; import { authError,fail,ok } from '@/lib/http';
+export async function GET(){try{const user=await requireUser();const s=await readStore();const items=(s.notifications||[]).filter(n=>n.userId===user.id).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)).slice(0,20);return ok({notifications:items,unread:items.filter(n=>!n.readAt).length});}catch(e){return authError(e)||fail('Could not load notifications.');}}
